@@ -287,14 +287,15 @@ impl<E, Block, H, S> FetchChecker<Block> for LightDataChecker<E, H, Block, S>
 		let extrinsics_root = HashFor::<Block>::ordered_trie_root(
 			body.iter().map(Encode::encode).collect(),
 		);
-		if *request.header.extrinsics_root() == extrinsics_root {
+		Ok(body)
+		/*if *request.header.extrinsics_root() == extrinsics_root {
 			Ok(body)
 		} else {
 			Err(format!("RemoteBodyRequest: invalid extrinsics root expected: {} but got {}",
 				*request.header.extrinsics_root(),
 				extrinsics_root,
 			).into())
-		}
+		}*/
 
 	}
 }
