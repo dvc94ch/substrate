@@ -158,7 +158,7 @@ impl NetworkParams {
 			in_peers: self.in_peers,
 			out_peers: self.out_peers,
 			transport: TransportConfig::Normal {
-				enable_mdns: !is_dev && !self.no_mdns,
+				enable_mdns: !self.no_mdns,
 				allow_private_ipv4: !self.no_private_ipv4,
 				wasm_external_transport: None,
 				use_yamux_flow_control: !self.no_yamux_flow_control,
